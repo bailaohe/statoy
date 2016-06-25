@@ -2,6 +2,8 @@ FROM python:3.5.1-alpine
 MAINTAINER He Bai <bai.he@outlook.com>
 
 ENV NOTEBOOK_DIR /notebook
+# gpg: key F73C700D: public key "Larry Hastings <larry@hastings.org>" imported
+ENV GPG_KEY 97FC712E4C024BBEA48A61ED3A5CA953F73C700D
 
 # add python requirements
 ADD requirements.txt /root/requirements.txt
