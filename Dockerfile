@@ -1,4 +1,4 @@
-FROM python:3.5.1-alpine
+FROM amancevice/pandas:0.18.1
 MAINTAINER He Bai <bai.he@outlook.com>
 
 ENV NOTEBOOK_DIR /notebook
@@ -8,6 +8,7 @@ ADD requirements.txt /requirements.txt
 
 # Install python related packages
 RUN set -ex \
+    && apk add --no-cache python-dev py-pip \
     && apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev \
     && pip install -r /requirements.txt \
     && pip install jupyter \
