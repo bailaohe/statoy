@@ -1,4 +1,4 @@
-numpy==1.11.0
+numpy==1.10.4
 pandas==0.18.1
 Flask==0.11.1
 Flask-Cors==2.1.2
