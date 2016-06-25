@@ -1,7 +1,7 @@
 FROM python:3.5.1-alpine
 MAINTAINER He Bai <bai.he@outlook.com>
 
-ENV NOTEBOOK_DIR /notebook
+ENV NOTEBOOK_DIR /root/notebook
 
 # add python requirements
 ADD requirements.txt /root/requirements.txt
