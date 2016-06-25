@@ -8,7 +8,7 @@ ADD requirements.txt /root/requirements.txt
 
 # Install python related packages
 RUN set -ex \
-    && apk add --no-cache --virtual .build-deps gcc postgresql-dev \
+    && apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev \
     && pip install -r /root/requirements.txt \
     && pip install jupyter \
     && apk del .build-deps \
