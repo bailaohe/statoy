@@ -24,5 +24,12 @@ RUN apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev \
 # Install the jupyter notebook
 RUN mkdir -p ${NOTEBOOK_DIR} && echo "c.NotebookApp.open_browser = False" > ${NOTEBOOK_DIR}/jupyter_notebook_config.py
 
+# Download required libraries libgcc_s.so.1, libstdc++.so.6
+RUN curl -Ls https://www.archlinux.org/packages/core/x86_64/gcc-libs/download > /tmp/gcc-libs.tar.gz && \
+    mkdir /usr/libgcc && tar -xvf /tmp/gcc-libs.tar.gz -C /usr/libgcc
+
+RUN echo /usr/libgcc/usr/lib >> /etc/ld.so.conf
+RUN /usr/glibc/usr/bin/ldconfig
+
 CMD cd ${NOTEBOOK_DIR} && jupyter notebook
 
