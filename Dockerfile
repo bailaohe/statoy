@@ -31,7 +31,7 @@ RUN apk add --no-cache curl && \
     apk del curl
 
 RUN echo /usr/libgcc/usr/lib >> /etc/ld.so.conf
-RUN /usr/glibc/usr/bin/ldconfig
+RUN /sbin/ldconfig
 
 CMD cd ${NOTEBOOK_DIR} && jupyter notebook
 
