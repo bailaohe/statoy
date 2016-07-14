@@ -18,8 +18,8 @@ RUN apk add --no-cache python3-dev && \
 
 # Install python related packages
 RUN apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev curl && \
-    pip3 install -r /requirements.txt && \
-    pip3 install jupyter && \
+    pip3 --no-cache-dir install -r /requirements.txt && \
+    pip3 --no-cache-dir install jupyter && \
     curl -Ls https://www.archlinux.org/packages/core/x86_64/gcc-libs/download > /tmp/gcc-libs.tar.gz && \
     mkdir /usr/libgcc && tar -xvf /tmp/gcc-libs.tar.gz -C /usr/libgcc && \
     apk del .build-deps
