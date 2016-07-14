@@ -28,7 +28,7 @@ RUN echo /usr/libgcc/usr/lib >> /etc/ld.so.conf && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
     /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8 && \
     /usr/glibc-compat/bin/localedef -i zh_CN -f UTF-8 zh_CN.UTF-8 && \
-    rm -rf /tmp/glibc*apk /var/cache/apk/*
+    rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip
 
 # Install the jupyter notebook
 RUN mkdir -p ${NOTEBOOK_DIR} && echo "c.NotebookApp.open_browser = False" > ${NOTEBOOK_DIR}/jupyter_notebook_config.py
