@@ -29,5 +29,7 @@ RUN mkdir -p ${NOTEBOOK_DIR} && echo "c.NotebookApp.open_browser = False" > ${NO
 
 EXPOSE 8888
 
-CMD cd ${NOTEBOOK_DIR} && jupyter notebook
+WORKDIR ${NOTEBOOK_DIR}
+
+CMD ["sh", "-c", "jupyter notebook --ip=*"]
 
