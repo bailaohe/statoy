@@ -27,5 +27,7 @@ RUN apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev curl && \
 # Install the jupyter notebook
 RUN mkdir -p ${NOTEBOOK_DIR} && echo "c.NotebookApp.open_browser = False" > ${NOTEBOOK_DIR}/jupyter_notebook_config.py
 
+EXPOSE 8888
+
 CMD cd ${NOTEBOOK_DIR} && jupyter notebook
 
