@@ -18,7 +18,8 @@ RUN apk add --no-cache python3-dev && \
     apk del .build-deps
 
 # Install python related packages
-RUN apk add --no-cache --virtual .build-deps gcc g++ postgresql-dev curl && \
+RUN apk add --no-cache --virtual .build-deps gcc g++ curl && \
+    apk add --no-cache postgresql-dev && \
     pip3 --no-cache-dir install -r /requirements.txt && \
     pip3 --no-cache-dir install jupyter && \
     apk del .build-deps && \
