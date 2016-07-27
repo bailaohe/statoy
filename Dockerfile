@@ -4,6 +4,9 @@ MAINTAINER He Bai <bai.he@outlook.com>
 # add python requirements
 ADD requirements.txt /requirements.txt
 
+ENV NUMPY_VERSION 1.11.0
+ENV PANDAS_VERSION 0.18.1
+
 # Install python related packages
 RUN apk add --no-cache python3-dev && \
     apk add --no-cache libstdc++ && \
@@ -12,6 +15,8 @@ RUN apk add --no-cache python3-dev && \
     apk add --no-cache postgresql-dev && \
     apk add --no-cache mariadb-dev && \
     pip3 --no-cache-dir install -r /requirements.txt && \
+    pip3 install numpy==$NUMPY_VERSION && \
+    pip3 install pandas==$PANDAS_VERSION && \
     pip3 --no-cache-dir install jupyter && \
     apk del .build-deps && \
     rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip && \
