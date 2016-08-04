@@ -2,7 +2,7 @@ FROM frolvlad/alpine-glibc:alpine-3.4
 MAINTAINER He Bai <bai.he@outlook.com>
 
 # add python requirements
-ADD requirements.txt /requirements.txt
+ADD ../requirements.txt /requirements.txt
 
 ENV NUMPY_VERSION 1.11.0
 ENV PANDAS_VERSION 0.18.1
