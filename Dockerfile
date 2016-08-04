@@ -14,6 +14,7 @@ RUN apk add --no-cache python-dev && \
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
     apk add --no-cache postgresql-dev && \
     apk add --no-cache mariadb-dev && \
+    curl -fSL 'https://bootstrap.pypa.io/get-pip.py' | python && \
     pip --no-cache-dir install -r /requirements.txt && \
     pip install numpy==$NUMPY_VERSION && \
     pip install pandas==$PANDAS_VERSION && \
