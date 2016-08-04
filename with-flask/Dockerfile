@@ -1,4 +1,4 @@
-from bailaohe/statoy
+from bailaohe/statoy:base
 
 ADD requirements.txt /requirements.txt
 
