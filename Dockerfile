@@ -10,7 +10,7 @@ ENV PANDAS_VERSION 0.18.1
 # Install python related packages
 RUN apk add --no-cache python-dev && \
     apk add --no-cache libstdc++ && \
-    apk add --no-cache --virtual .build-deps g++ && \
+    apk add --no-cache --virtual .build-deps g++ curl && \
     ln -s /usr/include/locale.h /usr/include/xlocale.h && \
     apk add --no-cache postgresql-dev && \
     apk add --no-cache mariadb-dev && \
