@@ -19,7 +19,7 @@ RUN apk add --no-cache python3-dev && \
     pip3 --no-cache-dir install -r /requirements.txt && \
     pip3 install numpy==$NUMPY_VERSION && \
     pip3 install pandas==$PANDAS_VERSION && \
-    pip3 install matplotlib=$MATPLOT_VERSION && \
+    pip3 install matplotlib==$MATPLOT_VERSION && \
     pip3 --no-cache-dir install jupyter && \
     apk del .build-deps && \
     rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip && \
