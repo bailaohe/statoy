@@ -23,8 +23,8 @@ RUN apk add --no-cache python3-dev && \
     pip3 --no-cache-dir install jupyter && \
     apk del .build-deps && \
     rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip && \
-    ln -s /usr/bin/python3 /usr/bin/python &&
-    ln -s /usr/bin/pip3 /usr/bin/pip &&
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    ln -s /usr/bin/pip3 /usr/bin/pip && \
     mkdir /notebooks
 
 # Install the jupyter notebook
