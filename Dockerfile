@@ -26,8 +26,10 @@ RUN apk add --no-cache python3-dev && \
     mkdir /notebooks
 
 # Install the jupyter notebook
-VOLUME /notebooks
-EXPOSE 8888
+USER daemon
 
-CMD ["sh", "-c", "jupyter notebook --no-browser --ip=* --notebook-dir=/notebooks"]
+VOLUME /notebooks
+EXPOSE 9999
+
+ENTRYPOINT ["jupyter", "notebook", "--no-brower", "--ip=0.0.0.0", "--port=9999", "--notebook-dir=/notebooks"]
 
