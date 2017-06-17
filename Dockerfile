@@ -31,5 +31,5 @@ USER daemon
 VOLUME /notebooks
 EXPOSE 9999
 
-ENTRYPOINT ["jupyter", "notebook", "--no-brower", "--ip=0.0.0.0", "--port=9999", "--notebook-dir=/notebooks"]
+ENTRYPOINT ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0", "--port=9999", "--notebook-dir=/notebooks"]
 
