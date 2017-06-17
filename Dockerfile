@@ -1,12 +1,5 @@
-FROM frolvlad/alpine-glibc:alpine-3.4
+FROM frolvlad/alpine-glibc
 MAINTAINER He Bai <bai.he@outlook.com>
-
-# add python requirements
-ADD requirements.txt /requirements.txt
-
-ENV NUMPY_VERSION 1.11.0
-ENV PANDAS_VERSION 0.18.1
-ENV MATPLOT_VERSION 1.5.1
 
 # Install python related packages
 RUN apk add --no-cache python3-dev && \
@@ -16,10 +9,15 @@ RUN apk add --no-cache python3-dev && \
     apk add --no-cache postgresql-dev && \
     apk add --no-cache mariadb-dev && \
     apk add --no-cache freetype-dev && \
-    pip3 --no-cache-dir install -r /requirements.txt && \
-    pip3 install numpy==$NUMPY_VERSION && \
-    pip3 install pandas==$PANDAS_VERSION && \
-    pip3 install matplotlib==$MATPLOT_VERSION && \
+    pip3 --no-cache-dir install --upgrade pip && \
+    pip3 --no-cache-dir install requests && \
+    pip3 --no-cache-dir install XlsxWriter && \
+    pip3 --no-cache-dir install SQLAlchemy && \
+    pip3 --no-cache-dir install psycopg2 && \
+    pip3 --no-cache-dir install mysqlclient && \
+    pip3 --no-cache-dir install numpy && \
+    pip3 --no-cache-dir install pandas && \
+    pip3 --no-cache-dir install matplotlib && \
     pip3 --no-cache-dir install jupyter && \
     apk del .build-deps && \
     rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip && \
