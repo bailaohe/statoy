@@ -26,7 +26,8 @@ RUN apk add --no-cache python3-dev && \
     mkdir /notebooks
 
 # Install the jupyter notebook
-USER daemon
+RUN adduser -D jupy
+USER jupy
 
 VOLUME /notebooks
 EXPOSE 9999
