@@ -22,15 +22,15 @@ RUN apk add --no-cache python3-dev && \
     apk del .build-deps && \
     rm -rf /tmp/glibc*apk /var/cache/apk/* /root/.cache/pip && \
     ln -s /usr/bin/python3 /usr/bin/python && \
-    ln -s /usr/bin/pip3 /usr/bin/pip && \
-    mkdir /notebooks
+    ln -s /usr/bin/pip3 /usr/bin/pip
 
 # Install the jupyter notebook
 RUN adduser -D jupy
 USER jupy
 
-VOLUME /notebooks
-EXPOSE 9999
+RUN mkdir -p /home/jupy/notebooks
+VOLUME /home/jupy/notebooks
 
+EXPOSE 9999
 ENTRYPOINT ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0", "--port=9999", "--notebook-dir=/notebooks"]
 
